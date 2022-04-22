@@ -18,7 +18,7 @@ gradient.addColorStop(0.2, '#937c00');
 gradient.addColorStop(0.4, '#043101');
 gradient.addColorStop(0.6, '#3d003c');
 gradient.addColorStop(0.8, '#001149');
-// gradient.addColorStop(1, 'magenta');
+gradient.addColorStop(1, 'magenta');
 
 
 
@@ -89,7 +89,7 @@ function animate(timestamp){
     const delta = timestamp- lastTime;
     lastTime = timestamp;
     if (timer> nextFrame){
-        ctx.fillStyle = 'rgba(0,0,0, 0.05)';
+        ctx.fillStyle = 'rgba(255,255,255, 0.05)';
         ctx.textAlign = "center";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = effect.fontSize + 'px monospace';
