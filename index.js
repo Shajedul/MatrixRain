@@ -52,7 +52,7 @@ class Effect {
     constructor(canvasWidth, canvasHeight){
         this.canvasWidth= canvasWidth;
         this.canvasHeight= canvasHeight;
-        this.fontSize = 18;
+        this.fontSize = 16;
         this.symbols = [];
         this.columns = this.canvasWidth/this.fontSize;
         console.log(this.columns)
@@ -89,7 +89,7 @@ function animate(timestamp){
     const delta = timestamp- lastTime;
     lastTime = timestamp;
     if (timer> nextFrame){
-        ctx.fillStyle = 'rgba(255,255,255, 0.05)';
+        ctx.fillStyle = 'rgba(0,0,0, 0.05)';
         ctx.textAlign = "center";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = effect.fontSize + 'px monospace';
