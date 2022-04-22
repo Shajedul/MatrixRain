@@ -13,11 +13,17 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-gradient.addColorStop(0, '#690000');
-gradient.addColorStop(0.2, '#937c00');
-gradient.addColorStop(0.4, '#043101');
-gradient.addColorStop(0.6, '#3d003c');
-gradient.addColorStop(0.8, '#001149');
+// gradient.addColorStop(0, '#b00000');
+// gradient.addColorStop(0.2, '#a68d00');
+// gradient.addColorStop(0.4, '#096e02');
+// gradient.addColorStop(0.6, '#7c007a');
+// gradient.addColorStop(0.8, '#001c79');
+gradient.addColorStop(1, 'magenta');
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(0.2, 'yellow');
+gradient.addColorStop(0.4, 'green');
+gradient.addColorStop(0.6, 'cyan');
+gradient.addColorStop(0.8, 'blue');
 gradient.addColorStop(1, 'magenta');
 
 
@@ -38,7 +44,7 @@ class Symbol {
         context.fillStyle = gradient;
         context.fillText(this.text, this.x * this.fontSize, this.y* this.fontSize);
 
-        if (this.y * this.fontSize> this.canvasHeight && Math.random() > 0.98){
+        if (this.y * this.fontSize> this.canvasHeight && Math.random() > 0.96){
             this.y = 0;
         }else {
             this.y +=1;
@@ -52,7 +58,7 @@ class Effect {
     constructor(canvasWidth, canvasHeight){
         this.canvasWidth= canvasWidth;
         this.canvasHeight= canvasHeight;
-        this.fontSize = 16;
+        this.fontSize = 20;
         this.symbols = [];
         this.columns = this.canvasWidth/this.fontSize;
         console.log(this.columns)
@@ -79,7 +85,7 @@ class Effect {
 
 const effect = new Effect(canvas.width, canvas.height);
 let lastTime = 0;
-const fps = 90;
+const fps = 60;
 const nextFrame = 1000/fps;
 let timer =0;
 
@@ -89,7 +95,7 @@ function animate(timestamp){
     const delta = timestamp- lastTime;
     lastTime = timestamp;
     if (timer> nextFrame){
-        ctx.fillStyle = 'rgba(255,255,255, 0.05)';
+        ctx.fillStyle = 'rgba(0,0,0, 0.05)';
         ctx.textAlign = "center";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.font = effect.fontSize + 'px monospace';
